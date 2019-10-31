@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      action="http://localhost:3001/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input id="name" type="text" name="name" />
+      <input id="password" type="password" name="password" />
+      <input type="file" name="file" id="file" />
+      <button type="submit">提交</button>
+      <!-- <button id="btn">提交</button> -->
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <!-- <script>
+        const btn = $("#btn");
+
+        btn.click(function(e) {
+          e.preventDefault();
+          const formData = new FormData();
+          const username = $("#username").val();
+          const password = $("#password").val();
+          const file = $("#file")[0].files[0];
+          formData.append("username", username);
+          formData.append("password", password);
+          formData.append("file", file);
+
+          $.ajax({
+            url: "http://localhost:3001/upload",
+            type: "POST",
+            contentType: "multipart/form-data",
+            processData: false,
+            cache: false,
+            data: formData,
+            success(res) {
+              console.log(res);
+            },
+            error(err) {
+              console.log(err);
+            }
+          });
+        });
+      </script> -->
+    </form>
+  </body>
+</html>

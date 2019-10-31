@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 50%;
+        height: 200px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chatBox" class="box"></div>
+    <input id="text" type="text" />
+    <button id="btn">发送</button>
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+    <script>
+      const text = document.querySelector("#text");
+      const btn = document.querySelector("#btn");
+      const box = document.querySelector("#chatBox");
+      const ws = io.connect("ws://localhost:8080");
+      btn.onclick = function() {
+        ws.emit("chat", text.value);
+        text.value = "";
+      };
+      ws.on("echo", function(msg) {
+        box.textContent = msg;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="username" type="text" name="username" />
+    <input id="password" type="password" name="password" />
+    <button onclick="handleClick('login')">登录</button>
+    <button onclick="handleClick('reg')" id="reg">注册</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      function handleClick(type) {
+        const username = $("#username").val();
+        const password = $("#password").val();
+        $.ajax({
+          url: type,
+          data: { username, password },
+          dataType: "json",
+          success(res) {
+            console.log(res);
+            if (res.err < 1) {
+              alert(`error:${res.msg}`);
+            } else {
+              alert(`${type} success`);
+            }
+          },
+          error(err) {
+            alert(`error:${err.msg}`);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
