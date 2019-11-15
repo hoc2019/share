@@ -9,3 +9,4 @@
 | 路由介绍与react-hash-router开发 | 赵健 | |
 | 基于react及canvas的数据可视化库的开发 | 赵健 | |
 | 用Electron写一个代码编辑器                  | 周俊 | unKnown |
+| 实现React-redux                  | 曾扬平 | 2019.11.14 |
